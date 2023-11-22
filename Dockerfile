@@ -49,6 +49,7 @@ RUN wget -O custom_nodes/ComfyUI_IPAdapter_plus/models/ip_adapter.safetensors ht
 RUN wget -O models/clip_vision https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors
 
 # Example for adding specific models into image
+
 # ADD models/checkpoints/sd_xl_base_1.0.safetensors models/checkpoints/
 # ADD models/vae/sdxl_vae.safetensors models/vae/
 
