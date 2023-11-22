@@ -46,7 +46,7 @@ RUN pip install -r custom_nodes/was-node-suite-comfyui/requirements.txt
 # Add IP adapter model
 RUN wget -O custom_nodes/ComfyUI_IPAdapter_plus/models/ip_adapter.safetensors https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus-face_sdxl_vit-h.safetensors
 # Add clip vision model
-RUN wget -O models/clip_vision https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors
+RUN wget -O models/clip_vision/model.safetensors https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors
 
 # Example for adding specific models into image
 
