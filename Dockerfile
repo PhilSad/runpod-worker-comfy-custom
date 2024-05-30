@@ -34,25 +34,12 @@ RUN pip3 install runpod requests
 
 # Download checkpoints/vae/LoRA to include in image
 RUN wget -O models/checkpoints/sd_xl_base_1.0.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors
-RUN wget -O models/vae/sdxl_vae.safetensors https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors
-RUN wget -O models/vae/sdxl-vae-fp16-fix.safetensors https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.safetensors
-
+RUN wget -O models/controlnet/sdxl_canny.safetensors https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors
 # add custom nodes
-RUN git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus custom_nodes/ComfyUI_IPAdapter_plus
-RUN git clone https://github.com/WASasquatch/was-node-suite-comfyui custom_nodes/was-node-suite-comfyui
-RUN pip install -r custom_nodes/was-node-suite-comfyui/requirements.txt
+RUN git clone https://github.com/Fannovel16/comfyui_controlnet_aux custom_nodes/comfyui_controlnet_aux
+RUN pip install -r custom_nodes/comfyui_controlnet_aux/requirements.txt
 
-# Add IP adapter model
-RUN wget -O custom_nodes/ComfyUI_IPAdapter_plus/models/ip-adapter-plus-face_sdxl_vit-h.safetensors https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus-face_sdxl_vit-h.safetensors
-# Add clip vision model
-RUN wget -O models/clip_vision/model.safetensors https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors
 
-# Example for adding specific models into image
-
-# ADD models/checkpoints/sd_xl_base_1.0.safetensors models/checkpoints/
-# ADD models/vae/sdxl_vae.safetensors models/vae/
-
-# Go back to the root
 WORKDIR /
 
 # Add the start and the handler
